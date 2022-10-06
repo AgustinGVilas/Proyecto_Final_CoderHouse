@@ -1,0 +1,19 @@
+{% extends 'AppBlog/padre.html' %}
+
+{% block titulo %}
+
+Detalle del auto seleccionado
+
+{% endblock %}
+
+
+{% block texto %}
+
+<p>Marca: {{autos.marca}}</p>
+<p>Modelo: {{autos.modelo}}</p>
+<p>Año de fabricación: {{autos.año_fab}}</p>
+<p>Descripción: {{autos.descripcion}}</p>
+<img src="{{autos.imagen.url}}" style="max-width: 500px">
+
+
+{% endblock %}

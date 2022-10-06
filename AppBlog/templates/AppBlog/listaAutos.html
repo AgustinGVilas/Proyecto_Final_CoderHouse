@@ -1,0 +1,27 @@
+{% extends 'AppBlog/padre.html' %}
+
+{% block titulo %}
+
+Lista de los autos guardados
+
+{% endblock %}
+
+
+{% block texto %}
+
+{% for auto in object_list %}
+
+    <li>{{auto.marca}} {{auto.modelo}}</li>
+    <button>
+        <a href="{% url 'detalleAuto' auto.id %}">Detalles</a>
+    </button>    
+    <button>
+        <a href="{% url 'editarAuto' auto.id %}">Editar</a>
+    </button>   
+    <button>
+        <a href="{% url 'eliminarAuto' auto.id %}">Eliminar</a>
+    </button>
+
+{% endfor %}
+
+{% endblock %}

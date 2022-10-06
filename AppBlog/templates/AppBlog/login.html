@@ -1,0 +1,25 @@
+{% extends 'AppBlog/padre.html' %}
+
+{% block titulo %}
+
+Iniciar sesión
+
+{% endblock %}
+
+
+{% block texto %}
+
+
+
+<form action="" method="POST"> {% csrf_token %}
+
+    {{form.as_p}}
+
+    <input type="submit" value="Iniciar sesión">
+
+</form>
+<br><br>
+<p>Si no tiene cuenta registrese aqui: <a href="{% url 'registro' %}">Registrarse</a></p>
+
+
+{% endblock %}
