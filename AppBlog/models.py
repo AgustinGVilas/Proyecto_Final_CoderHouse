@@ -6,9 +6,10 @@ class Autos(models.Model):
     
     marca = models.CharField(max_length=40)
     modelo = models.CharField(max_length=40)
-    año_fab = models.IntegerField()
+    año_de_fabricacion = models.IntegerField()
     descripcion = models.TextField(max_length=240, null=True, blank=True)
     imagen = models.ImageField(upload_to='imagenautos', null=True, blank=True)
+    fecha_de_edicion = models.DateField()
 
     def __str__(self):
 

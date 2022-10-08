@@ -8,7 +8,7 @@ class FormuAutos(forms.Form):    #formulario para crear autos
 
     marca = forms.CharField()
     modelo = forms.CharField()
-    año_fab = forms.IntegerField()
+    año_de_fabricacion = forms.IntegerField()
     descripcion = forms.CharField(widget=forms.Textarea)
     imagen = forms.ImageField()
 

@@ -1,3 +1,4 @@
+from datetime import date
 from django.shortcuts import render
 from .models import *
 from .forms import *
@@ -32,7 +33,9 @@ def formularioAutos(request):   #funcion para mostrar el formulario para ingresa
 
             info = form.cleaned_data
 
-            auto = Autos(marca=info['marca'], modelo=info['modelo'], año_fab=info['año_fab'], descripcion=info['descripcion'], imagen=info['imagen'])
+            auto = Autos(marca=info['marca'], modelo=info['modelo'],
+            año_de_fabricacion=info['año_de_fabricacion'], descripcion=info['descripcion'],
+            fecha_de_edicion=date.today(), imagen=info['imagen'])
 
             auto.save()
 
@@ -92,7 +95,7 @@ class EditarAutos(LoginRequiredMixin, UpdateView):        #clase para editar los
 
     model = Autos
     success_url = "/AppBlog/listaAutos"
-    fields = ["marca", "modelo", "año_fab", "descripcion", 'imagen']
+    fields = ["marca", "modelo", "año_de_fabricacion", "descripcion", 'imagen']
     template_name = "AppBlog/edicionAutos.html"
 
 
