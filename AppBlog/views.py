@@ -33,9 +33,7 @@ def formularioAutos(request):   #funcion para mostrar el formulario para ingresa
 
             info = form.cleaned_data
 
-            auto = Autos(marca=info['marca'], modelo=info['modelo'],
-            año_de_fabricacion=info['año_de_fabricacion'], descripcion=info['descripcion'],
-            fecha_de_edicion=date.today(), imagen=info['imagen'])
+            auto = Autos(marca=info['marca'], modelo=info['modelo'], año_de_fabricacion=info['año_de_fabricacion'], descripcion=info['descripcion'], fecha_de_edicion=date.today(), imagen=info['imagen'], version=info['version'], motorizacion=info['motorizacion'], combustible=info['combustible'])
 
             auto.save()
 
@@ -48,7 +46,7 @@ def formularioAutos(request):   #funcion para mostrar el formulario para ingresa
     return render (request, 'AppBlog/formuautos.html', {"form": form})
 
 
-
+@login_required
 def busquedaAutos(request):     #funcion para mostrar formulario para buscar autos
 
     return render(request, "AppBlog/busqueda.html")
@@ -95,7 +93,7 @@ class EditarAutos(LoginRequiredMixin, UpdateView):        #clase para editar los
 
     model = Autos
     success_url = "/AppBlog/listaAutos"
-    fields = ["marca", "modelo", "año_de_fabricacion", "descripcion", 'imagen']
+    fields = ["marca", "modelo", "version", "año_de_fabricacion", "motorizacion", "combustible", "descripcion", 'imagen']
     template_name = "AppBlog/edicionAutos.html"
 
 
@@ -192,7 +190,7 @@ def editarUsuario(request):   #funcion para editar el usuario
 
 
 @login_required
-def agregarAvatar(request):
+def agregarAvatar(request):    #Función para agregar foto al perfil del usuario
 
     if request.method == 'POST':
 

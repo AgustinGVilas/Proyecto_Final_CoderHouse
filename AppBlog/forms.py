@@ -8,9 +8,13 @@ class FormuAutos(forms.Form):    #formulario para crear autos
 
     marca = forms.CharField()
     modelo = forms.CharField()
-    año_de_fabricacion = forms.IntegerField()
-    descripcion = forms.CharField(widget=forms.Textarea)
+    version = forms.CharField(label = "Versión")
+    año_de_fabricacion = forms.IntegerField(label = "Año de fabricación")
+    motorizacion = forms.CharField(label = "Motorización")
+    combustible = forms.CharField()
+    descripcion = forms.CharField(label = "Descripción", widget=forms.Textarea)
     imagen = forms.ImageField()
+
 
 
 class FormuRegisitro(UserCreationForm):   #formulario para el registro
@@ -23,7 +27,7 @@ class FormuRegisitro(UserCreationForm):   #formulario para el registro
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
 
-class EditarUsuario(UserCreationForm):
+class EditarUsuario(UserCreationForm):     #Formulario para editar usuarios
 
     email = forms.EmailField()
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
@@ -36,7 +40,7 @@ class EditarUsuario(UserCreationForm):
         help_texts = {k:"" for k in fields}
 
 
-class FormuAvatar(forms.ModelForm):
+class FormuAvatar(forms.ModelForm):   #Formulario para agregar avatar al usuario
 
     class Meta:
 

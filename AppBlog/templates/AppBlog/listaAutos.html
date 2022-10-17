@@ -11,16 +11,12 @@ Lista de los autos guardados
 
 {% for auto in object_list %}
 
-    <li>{{auto.marca}} {{auto.modelo}}</li>
-    <button>
+    <li><b>{{auto.marca}} {{auto.modelo}}</b> </li>         
+    <em>
         <a href="{% url 'detalleAuto' auto.id %}">Detalles</a>
-    </button>    
-    <button>
         <a href="{% url 'editarAuto' auto.id %}">Editar</a>
-    </button>   
-    <button>
         <a href="{% url 'eliminarAuto' auto.id %}">Eliminar</a>
-    </button>
+    </em>
 
 {% endfor %}
 

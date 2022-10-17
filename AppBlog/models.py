@@ -10,6 +10,9 @@ class Autos(models.Model):
     descripcion = models.TextField(max_length=240, null=True, blank=True)
     imagen = models.ImageField(upload_to='imagenautos', null=True, blank=True)
     fecha_de_edicion = models.DateField()
+    version = models.CharField(max_length=30)
+    motorizacion = models.CharField(max_length=30)
+    combustible = models.CharField(max_length=30)
 
     def __str__(self):
 

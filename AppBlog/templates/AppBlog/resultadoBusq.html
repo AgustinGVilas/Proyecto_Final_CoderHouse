@@ -19,14 +19,17 @@ No existe en la base de datos la marca: {{marca}}
 
 
 {% for a in auto %}
-    
-<p>Marca: {{a.marca}}</p>
-<p>Modelo: {{a.modelo}}</p>
-<p>Año de fabricación: {{a.año_de_fabricacion}}</p>
-<p>Descripción: {{a.descripcion}}</p>
+<br>
+<p> <b>Marca: </b> {{a.marca}}</p>
+<p> <b>Modelo: </b> {{a.modelo}}</p>
+<p> <b>Versión:</b>  {{a.version}}</p>
+<p> <b>Año de fabricación:</b>  {{a.año_de_fabricacion}}</p>
+<p> <b>Motorización:</b>  {{a.motorizacion}}</p>
+<p> <b>Combustible:</b>  {{a.combustible}}</p>
+<p> <b>Descripción:</b>  {{a.descripcion}}</p>
 <img src="{{a.imagen.url}}" style="max-width: 500px">
 
-<p>Fecha de edición: {{a.fecha_de_edicion}}</p>
+<p> <em>Fecha de creación: {{a.fecha_de_edicion}}</em> </p>
     
 
 {% endfor %}
